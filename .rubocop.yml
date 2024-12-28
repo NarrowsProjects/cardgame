@@ -1,0 +1,43 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Exclude:
+    - bin/*
+    - config/**/*
+    - db/migrate/*.active_storage.rb
+    - db/schema.rb
+    - node_modules/**/*
+    - storage/**/*
+    - tmp/**/*
+    - vendor/**/*
+
+Layout/LineLength:
+  Max: 130
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Metrics/ClassLength:
+  Max: 170
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
