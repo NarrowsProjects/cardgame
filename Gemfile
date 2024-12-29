@@ -6,6 +6,8 @@ ruby '3.2.3'
 gem 'rails', '~> 7.1.5', '>= 7.1.5.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'faker'
+
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
