@@ -7,5 +7,9 @@ FactoryBot.define do
 
     association :play_pile, factory: :pile
     association :stock_pile, factory: :pile
+
+    after(:create) do |game|
+      game.current_player ||= FactoryBot.create(:player, game:)
+    end
   end
 end
