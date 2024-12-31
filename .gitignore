@@ -10,6 +10,7 @@
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
+/bin/dev.ps1
 
 # Ignore all logfiles and tempfiles.
 /log/*
