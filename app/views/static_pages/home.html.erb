@@ -1,0 +1,23 @@
+<div class="flex flex-grow flex-col gap-y-16">
+ <div class="flex justify-center w-full space-x-10">
+  <% %w[14Spades 8Diamonds 13Diamonds].each do |card| %>
+    <div class="relative w-28 h-36">
+      <%= image_tag "Back.png", class: "absolute z-10 r-0" %>
+      <%= image_tag "#{card}.png", class: "absolute right-3 z-20" %>
+    </div>
+  <% end %>
+ </div>
+
+ <h1 class="text-blue-500 font-medium text-7xl text-center font-outline-shadow"><%= t(".title") %></h1>
+ <%= link_to t(".play"), "#", class: "text-white font-bold text-4xl font-outline-shadow text-center hover:text-orange-400" %>
+ <%= link_to t(".create_account"), "#", class: "text-white font-bold text-4xl font-outline-shadow text-center hover:text-orange-400" %>
+
+ <div class="flex justify-center w-full space-x-10">
+  <% %w[10Hearts 2Spades 3Diamonds].each do |card| %>
+    <div class="relative w-28 h-36">
+      <%= image_tag "Back.png", class: "absolute z-10 r-0" %>
+      <%= image_tag "#{card}.png", class: "absolute right-3 z-20" %>
+    </div>
+  <% end %>
+ </div>
+</div>

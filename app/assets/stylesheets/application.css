@@ -8,3 +8,7 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ body{
+    min-height: 100vh;
+    background: url('background.png');
+}
