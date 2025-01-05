@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+# path to your application root.
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+ENV["CI"] = "true"
+ENV["RAILS_ENV"] = "test"
+
+FileUtils.chdir APP_ROOT do
+  puts "== Installing dependencies =="
+  system("bundle check") || system!("bundle install")
+  puts
+
+  puts "== Running rubocop =="
+  system!("bundle exec rubocop")
+  puts
+
+  puts "== Running erblint =="
+  system!("bundle exec erblint --lint-all")
+  puts
+
+  puts "== Precompiling assets =="
+  system!("rails assets:precompile assets:clobber")
+  puts
+
+  puts "== Preparing database =="
+  system!("rails db:drop db:create db:schema:load")
+  puts
+
+  puts "== Linting FactoryBot =="
+  system!("rails factory_bot:lint") && puts("OK")
+  puts
+
+  puts "== Running all tests =="
+  system!("SIMPLECOV=1 rails test:all")
+  puts
+
+  puts "== Generating ERD images =="
+  system("rails erd filetype=svg")
+end
