@@ -10,7 +10,7 @@
 
  <h1 class="text-blue-500 font-medium text-7xl text-center font-outline-shadow"><%= t(".title") %></h1>
  <%= link_to t(".play"), "#", class: "text-white font-bold text-4xl font-outline-shadow text-center hover:text-orange-400" %>
- <%= link_to t(".create_account"), "#", class: "text-white font-bold text-4xl font-outline-shadow text-center hover:text-orange-400" %>
+ <%= link_to t(".create_account"), new_user_path, class: "text-white font-bold text-4xl font-outline-shadow text-center hover:text-orange-400" %>
 
  <div class="flex justify-center w-full space-x-10">
   <% %w[10Hearts 2Spades 3Diamonds].each do |card| %>

@@ -1,0 +1,22 @@
+<h1 class="font-bold font-bold text-white text-4xl font-outline-shadow text-center"> <%= t('.title', username:user.username) %> </h1>
+
+<div class='relative flex flex-col items-center'>
+  <%= image_tag 'create_account.png', class: 'w-96' %>
+
+  <div class='absolute w-64 top-56 px-8 flex flex-col gap-y-5 items-start justify-center text-xl text-red-300'>
+      <div class='flex'>
+          <strong class="block font-medium mb-1"><%= t('.username') %>:</strong>
+          <%= user.username %>
+      </div>
+
+      <div class='flex'>
+          <strong class="block font-medium mb-1"><%= t('.wins') %>:</strong>
+          0
+      </div>
+
+      <div class='flex'>
+          <strong class="block font-medium mb-1"><%= t('.losses') %>:</strong>
+          0
+      </div>
+  </div>
+</div>
