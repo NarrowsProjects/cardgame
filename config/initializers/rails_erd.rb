@@ -1,0 +1,1 @@
+RailsERD.options.filetype = :svg

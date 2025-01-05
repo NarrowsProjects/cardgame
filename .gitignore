@@ -10,6 +10,8 @@
 # Ignore all environment files.
 /.env*
 
+erd.svg
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
