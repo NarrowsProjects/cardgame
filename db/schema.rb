@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_30_132313) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_30_143703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -39,6 +39,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_132313) do
     t.boolean "online", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "current_player_id"
+    t.index ["current_player_id"], name: "index_games_on_current_player_id"
     t.index ["play_pile_id"], name: "index_games_on_play_pile_id", unique: true
     t.index ["stock_pile_id"], name: "index_games_on_stock_pile_id", unique: true
   end
@@ -46,6 +48,19 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_132313) do
   create_table "piles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.bigint "hand_pile"
+    t.bigint "face_down_pile"
+    t.bigint "face_up_pile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_players_on_game_id"
+    t.index ["user_id", "game_id"], name: "index_players_on_user_id_and_game_id", unique: true
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +74,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_132313) do
   add_foreign_key "cards", "piles"
   add_foreign_key "games", "piles", column: "play_pile_id"
   add_foreign_key "games", "piles", column: "stock_pile_id"
+  add_foreign_key "games", "players", column: "current_player_id"
+  add_foreign_key "players", "games"
+  add_foreign_key "players", "piles", column: "face_down_pile"
+  add_foreign_key "players", "piles", column: "face_up_pile"
+  add_foreign_key "players", "piles", column: "hand_pile"
+  add_foreign_key "players", "users"
 end
