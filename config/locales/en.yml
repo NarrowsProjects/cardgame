@@ -33,6 +33,14 @@ en:
       title: Digital Shithead
       play: Play
       create_account: Create Account
+    login_page:
+      title: Login
+    game_page:
+      title: Play cards
+      host_game: Host a game
+      join_game: Join a game
+      offline: Play offline
+      tutorial_game: Tutorial game
   users:
     form:
       errors_title: "%{count} error prohibited this user from being saved:"

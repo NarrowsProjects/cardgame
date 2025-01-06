@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  get "login_page", to: "static_pages#login_page"
+  post "login", to: "static_pages#login"
+  get "game_page", to: "static_pages#game_page"
   root "static_pages#home"
 
   # Defines the root path route ("/")
