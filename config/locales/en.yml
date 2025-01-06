@@ -48,3 +48,18 @@ en:
       username: "Username"
       wins: "Wins"
       losses: "Losses"
+
+  activerecord:
+    errors:
+      models:
+        user: 
+          attributes:
+            username: 
+              blank: "Please provide a username" 
+              too_short: "Username must be at least %{count} characters long"
+              too_long: "Username must be at most %{count} characters long"
+              taken: "Username is already taken"
+            password:
+              blank: "Please provide a password"
+              too_long: "Password must be at most %{count} characters long"    
+              invalid_password: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character"
